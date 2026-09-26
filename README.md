@@ -57,4 +57,35 @@ eigenface = pca.components_[0].reshape(64, 64)
 
 De esta manera es posible visualizar las características principales aprendidas por PCA.
 
+## 👤 Reconocimiento facial
+
+Después de reducir la dimensionalidad mediante PCA, se utiliza un clasificador K-Nearest Neighbors (KNN) para reconocer la identidad de una persona.
+
+El proceso es:
+
+```text
+ Imagen facial
+      ↓
+Vectorización
+      ↓
+PCA
+      ↓
+Espacio de Eigenfaces
+      ↓
+KNN
+      ↓
+Persona reconocida
+```
+
+KNN compara la representación de una nueva imagen con las imágenes del conjunto de entrenamiento y determina la clase a partir de sus vecinos más cercanos.
+
+## 📈 Evaluación
+
+El conjunto de datos se divide en entrenamiento (**train**) y prueba (**test**). Posteriormente se evalúa el reconocimiento usando métricas como: 
+
+* Accuracy
+* Matriz de confusión
+* Classification Report
+
+El uso de PCA permite trabajar con una representación considerablemente menor que los 4096 píxeles originales.
 
